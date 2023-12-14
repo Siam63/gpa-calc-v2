@@ -11,10 +11,6 @@ function App() {
   
   const [count, setCounter] = useState(1);
 
-  const incrementCounter = () => {
-    setCounter(count + 1);
-  };
-
   const handleMarkChange = (e) => {
     const value = e.target.value;
 
@@ -62,8 +58,8 @@ function App() {
     const mark = (markReceived / 100) * markWeight;
     setTotal(total + mark);
 
-    // const weight = markWeight;
-    // setTotalWeight(totalWeight + markWeight);
+    const weight = Number(markWeight);
+    setTotalWeight(weight + totalWeight);
     
     setMarkReceived(0);
     setMarkWeight(0);
@@ -97,7 +93,7 @@ function App() {
         </div>
 
         <h1>
-          You currently have a {total}% in the class.
+          You currently have a {total}% in the class and this accounts for {totalWeight}% of the class.
         </h1>
 
       </div>
