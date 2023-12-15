@@ -11,6 +11,10 @@ function App() {
   
   const [count, setCounter] = useState(1);
 
+  const handleReset = () => {
+    window.location.reload(false);
+  }
+
   const handleMarkChange = (e) => {
     const value = e.target.value;
 
@@ -89,6 +93,9 @@ function App() {
         <div className="flex justify-center">
           <div>
             <button onClick={() => addMark(markReceived, markWeight)} className="p-2 m-5 border-solid border-2 border-black rounded-lg hover:bg-slate-100 transition-all">Add Mark</button>
+          </div>
+          <div>
+            <button onClick={ handleReset } className="p-2 m-5 border-solid border-2 border-black rounded-lg hover:bg-slate-100 transition-all">Reset Marks</button>
           </div>
         </div>
 
