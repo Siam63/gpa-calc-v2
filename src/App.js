@@ -72,7 +72,7 @@ function App() {
 
   return (
     <div className="bg-gradient-to-r from-slate-300 to-cyan-700 w-full min-h-screen">
-      <p className="pt-8 text-center text-3xl">Final Grade Calculator</p>
+      <p className="pt-52 text-center text-3xl">Final Grade Calculator</p>
       <div className="mt-3 text-center justify-center">
         <label className="font-bold text-xl">Assessment {count}</label>
 
