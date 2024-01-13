@@ -60,10 +60,10 @@ function App() {
     setGrades(list => [...list, grade]);
 
     const mark = (markReceived / 100) * markWeight;
-    setTotal(total + mark);
-
-    const weight = Number(markWeight);
-    setTotalWeight(weight + totalWeight);
+    setTotal(parseFloat((total + mark).toFixed(2)));
+  
+    const weight = parseFloat(markWeight);
+    setTotalWeight(parseFloat((weight + totalWeight).toFixed(2)));
     
     setMarkReceived(0);
     setMarkWeight(0);
@@ -71,8 +71,8 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <p className="text-center text-3xl">Final Grade Calculator</p>
+    <div className="bg-gradient-to-r from-slate-300 to-cyan-700 w-full min-h-screen">
+      <p className="pt-8 text-center text-3xl">Final Grade Calculator</p>
       <div className="mt-3 text-center justify-center">
         <label className="font-bold text-xl">Assessment {count}</label>
 
@@ -92,16 +92,16 @@ function App() {
 
         <div className="flex justify-center">
           <div>
-            <button onClick={() => addMark(markReceived, markWeight)} className="p-2 m-5 border-solid border-2 border-black rounded-lg hover:bg-slate-100 transition-all">Add Mark</button>
+            <button onClick={() => addMark(markReceived, markWeight)} className="hover:scale-105 p-2 m-5 border-solid border-2 border-black rounded-lg hover:bg-slate-100 transition-all">Add Mark</button>
           </div>
           <div>
-            <button onClick={ handleReset } className="p-2 m-5 border-solid border-2 border-black rounded-lg hover:bg-slate-100 transition-all">Reset Marks</button>
+            <button onClick={ handleReset } className=" hover:scale-105 p-2 m-5 border-solid border-2 border-black rounded-lg hover:bg-slate-100 transition-all">Reset Marks</button>
           </div>
         </div>
 
-        <h1>
-          You currently have a {total}% in the class and this accounts for {totalWeight}% of the class.
-        </h1>
+          <h1>
+            You currently have a {total}% in the class and this accounts for {totalWeight}% of the class.
+          </h1>
 
       </div>
 
@@ -109,8 +109,10 @@ function App() {
         <ul>
           {grades.map(grade => {
             return(
-              <div className="mt-10 flex justify-center">
-                <li key={grade.id}>Assessment {grade.id} - Mark Received: {grade.markValue}% - Weight: {grade.weightValue}%</li>
+              <div className="flex justify-center">
+                <div className="hover:scale-105 transition-all shadow-lg mt-10 flex justify-center bg-gray-200 w-6/12 p-2 rounded-md">
+                  <li key={grade.id}>Assessment {grade.id} - Mark Received: {grade.markValue}% - Weight: {grade.weightValue}%</li>
+                </div>
               </div>
             )
           })}
